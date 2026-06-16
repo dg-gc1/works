@@ -19,6 +19,21 @@ export default function ProjectRow({ project }: ProjectRowProps) {
     <Link href={`/projects/${project.slug}`} className="block group border-b border-arch-border">
       <div className="grid grid-cols-1 lg:grid-cols-[3.5rem_1fr_13rem_40%] hover:bg-arch-surface transition-colors duration-200">
 
+        {/* Cover image — top on mobile, right column on desktop */}
+        {hasImages && (
+          <div className="lg:hidden w-full bg-arch-surface order-first">
+            <Image
+              src={imageItems[0]}
+              alt={project.title}
+              width={0}
+              height={0}
+              className="w-full h-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+              sizes="100vw"
+              unoptimized
+            />
+          </div>
+        )}
+
         {/* Number — desktop only */}
         <div className="hidden lg:flex items-start pt-8 pb-8 pl-8">
           <span className="text-[11px] text-arch-faint font-mono">{project.number}</span>
@@ -77,7 +92,7 @@ export default function ProjectRow({ project }: ProjectRowProps) {
           </div>
         </div>
 
-        {/* Thumbnail area — desktop only, cover image only */}
+        {/* Thumbnail — desktop right column only */}
         <div className="hidden lg:flex items-start bg-arch-surface">
           {hasImages ? (
             <Image
@@ -86,7 +101,7 @@ export default function ProjectRow({ project }: ProjectRowProps) {
               width={0}
               height={0}
               className="w-full h-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-              sizes="(max-width: 1024px) 0px, 40vw"
+              sizes="40vw"
               unoptimized
             />
           ) : (
