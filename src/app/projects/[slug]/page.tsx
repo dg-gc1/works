@@ -59,13 +59,27 @@ function MediaItem({ src, title, index }: { src: string; title: string; index: n
 
   if (type === 'pdf') {
     return (
-      <div className="w-full bg-arch-surface" style={{ height: '85vh' }}>
-        <iframe
-          src={src}
-          title={`${title} — document ${index + 1}`}
-          className="w-full h-full border-0"
-        />
-      </div>
+      <>
+        {/* Mobile: open in new tab */}
+        <div className="block lg:hidden w-full bg-arch-surface px-6 py-8">
+          <a
+            href={src}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] tracking-[0.2em] uppercase text-arch-muted hover:text-arch-text transition-colors duration-200 border border-arch-border px-5 py-3 inline-block"
+          >
+            View Document ↗
+          </a>
+        </div>
+        {/* Desktop: embedded iframe */}
+        <div className="hidden lg:block w-full bg-arch-surface" style={{ height: '85vh' }}>
+          <iframe
+            src={src}
+            title={`${title} — document ${index + 1}`}
+            className="w-full h-full border-0"
+          />
+        </div>
+      </>
     )
   }
 
@@ -94,6 +108,8 @@ function MediaItem({ src, title, index }: { src: string; title: string; index: n
         sizes="(max-width: 768px) 100vw, calc(100vw - 4rem)"
         className="w-full h-auto"
         unoptimized
+        loading="lazy"
+        decoding="async"
       />
     </div>
   )
