@@ -15,7 +15,7 @@ export const projects: Project[] = [
     location: 'Maasvlakte II, Rotterdam, Netherlands',
     tags: ['Infrastructure', 'Resilience', 'Systems'],
     categories: ['architecture', 'urban'],
-    media: [https://drive.google.com/file/d/1sOe25jlbNRyoD_dBiW18hcnVnESWpqBh/view?usp=sharing],
+    media: ['https://drive.google.com/file/d/1sOe25jlbNRyoD_dBiW18hcnVnESWpqBh/view?usp=sharing'],
   },
   {
     id: '2',
