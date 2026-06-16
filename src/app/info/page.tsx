@@ -32,12 +32,11 @@ export default function InfoPage() {
           <p className="text-[10px] tracking-[0.2em] uppercase text-arch-faint mb-8">Profile</p>
           <h1 className="text-xl text-arch-text font-light mb-6">Xiaolong (Gary) Chen</h1>
           <p className="text-[13px] text-arch-muted leading-relaxed mb-4">
-            Xiaolong (Gary) Chen is an architectural designer and urban
-            researcher, recently graduated from the Architectural Association
-            (AA), London, where he completed his RIBA Part 1 and Part 2
-            studies. His work moves across architecture, urbanism, and
-            landscape, focusing on spatial systems, infrastructure, mobility,
-            environmental conditions, and everyday forms of inhabitation.
+            Xiaolong (Gary) Chen is a recent graduate from the Architectural
+            Association (AA), London. His work moves across architecture,
+            infrastructure, and landscape, investigating how spatial systems,
+            environmental conditions, and material economies shape patterns of
+            inhabitation and collective life.
           </p>
           <p className="text-[13px] text-arch-muted leading-relaxed mb-4">
             Positioned between design research and spatial practice, his
