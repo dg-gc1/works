@@ -23,7 +23,7 @@ export function getProjectMedia(slug: string, extraUrls: string[] = []): string[
     scanned = sortMedia(files).map((f) => `${basePath}/projects/${slug}/${f}`)
   }
 
-  const youtubeUrls = extraUrls.filter((u) => /youtu\.?be/.test(u))
+  const externalUrls = extraUrls.filter((u) => /^https?:\/\//.test(u))
 
-  return [...scanned, ...youtubeUrls]
+  return [...scanned, ...externalUrls]
 }
