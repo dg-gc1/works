@@ -14,12 +14,13 @@ function sortMedia(files: string[]): string[] {
 }
 
 export function getProjectMedia(slug: string, extraUrls: string[] = []): string[] {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
   const dir = path.join(process.cwd(), 'public', 'projects', slug)
 
   let scanned: string[] = []
   if (fs.existsSync(dir)) {
     const files = fs.readdirSync(dir).filter((f) => MEDIA_EXTENSIONS.test(f))
-    scanned = sortMedia(files).map((f) => `/projects/${slug}/${f}`)
+    scanned = sortMedia(files).map((f) => `${basePath}/projects/${slug}/${f}`)
   }
 
   const youtubeUrls = extraUrls.filter((u) => /youtu\.?be/.test(u))
