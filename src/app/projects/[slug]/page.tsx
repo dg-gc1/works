@@ -26,12 +26,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-type MediaType = 'youtube' | 'pdf' | 'video' | 'image'
+type MediaType = 'youtube' | 'pdf' | 'video' | 'external' | 'image'
 
 function getMediaType(src: string): MediaType {
   if (/youtu\.?be/.test(src)) return 'youtube'
   if (src.toLowerCase().endsWith('.pdf')) return 'pdf'
   if (/\.(mp4|mov|webm)$/i.test(src)) return 'video'
+  if (/^https?:\/\//.test(src)) return 'external'
   return 'image'
 }
 
@@ -94,6 +95,22 @@ function MediaItem({ src, title, index }: { src: string; title: string; index: n
         >
           <source src={src} />
         </video>
+      </div>
+    )
+  }
+
+  if (type === 'external') {
+    return (
+      <div className="w-full bg-arch-surface px-8 py-10 flex items-center gap-6">
+        <a
+          href={src}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[11px] tracking-[0.2em] uppercase text-arch-muted hover:text-arch-text transition-colors duration-200 border border-arch-border px-6 py-3 inline-block"
+        >
+          View Document ↗
+        </a>
+        <span className="text-[10px] text-arch-faint">Opens in new tab</span>
       </div>
     )
   }
@@ -176,7 +193,7 @@ export default function ProjectPage({ params }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {media.map((src, i) => {
               const type = getMediaType(src)
-              const fullWidth = type === 'youtube' || type === 'pdf' || type === 'video'
+              const fullWidth = type === 'youtube' || type === 'pdf' || type === 'video' || type === 'external'
               return (
                 <div key={i} className={fullWidth ? 'md:col-span-2' : ''}>
                   <MediaItem src={src} title={project.title} index={i} />
