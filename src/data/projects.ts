@@ -167,9 +167,9 @@ export const projects: Project[] = [
     number: '11',
     title: 'Coastal Art Gallery',
     description:
-      "A competition entry for a coastal art gallery whose form is derived from wave geometries, integrating the building into a landscape between sea and hillside.",
+      "A competition concept design for a coastal art gallery whose form is derived from wave geometries, integrating the building into a landscape between sea and hillside.",
     longDescription:
-      "The design extracts and deforms the formal properties of coastal waves to generate the gallery's primary structure, creating a roof and envelope that reads as a continuation of the landscape rather than an object placed upon it. Sited between the sea to the north and a hillside to the south, the building mediates between two landscapes — the building's profile rises and falls in dialogue with the topography, while its internal organisation follows the directional flow implied by the wave geometry. The scheme was developed as a collaborative competition entry, 2024.",
+      "The design extracts and deforms the formal properties of coastal waves to generate the gallery's primary structure, creating a roof and envelope that reads as a continuation of the landscape rather than an object placed upon it. Sited between the sea to the north and a hillside to the south, the building mediates between two landscapes — the building's profile rises and falls in dialogue with the topography, while its internal organisation follows the directional flow implied by the wave geometry. Developed as a competition concept design, 2024.",
     type: 'Architecture',
     year: 2024,
     location: 'Coastal Site',
